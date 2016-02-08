@@ -54,7 +54,7 @@ public class LocationServiceImpl extends LocationServiceBaseImpl {
 	public Location addLocation(long groupId, String name, String description, String streetAddress, String city, String stateOrProvince,
 			String country, ServiceContext serviceContext) throws PortalException, SystemException {
 
-		EventListingPermission.check(getPermissionChecker(), groupId, EventListingActionKeys.ADD_LOCATION);
+//		LocationPermission.check(getPermissionChecker(), groupId, EventListingActionKeys.ADD_LOCATION);
 
 		return LocationLocalServiceUtil.addLocation(getUserId(), groupId, name, description, streetAddress, city, stateOrProvince, country,
 				serviceContext);

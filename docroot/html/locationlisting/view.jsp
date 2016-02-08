@@ -19,18 +19,12 @@
 String displayStyle = GetterUtil.getString(portletPreferences.getValue("displayStyle", StringPool.BLANK));
 long displayStyleGroupId = GetterUtil.getLong(portletPreferences.getValue("displayStyleGroupId", null), scopeGroupId);
 
-long portletDisplayDDMTemplateId = PortletDisplayTemplateUtil.getPortletDisplayTemplateDDMTemplateId(displayStyleGroupId, displayStyle);
+//long portletDisplayDDMTemplateId = PortletDisplayTemplateUtil.getPortletDisplayTemplateDDMTemplateId(displayStyleGroupId, displayStyle);
+long portletDisplayDDMTemplateId = -1;
 
 boolean showLocationAddress_view = GetterUtil.getBoolean(portletPreferences.getValue("showLocationAddress", StringPool.TRUE));
 %>
-
-<c:choose>
-	<c:when test="<%= portletDisplayDDMTemplateId > 0 %>">
-		<% List<Location> locations = LocationLocalServiceUtil.getLocationsByGroupId(scopeGroupId); %>
-
-		<%= PortletDisplayTemplateUtil.renderDDMTemplate(pageContext, portletDisplayDDMTemplateId, locations) %>
-	</c:when>
-	<c:otherwise>
+ 
 		<liferay-ui:search-container emptyResultsMessage="location-empty-results-message">
 			<liferay-ui:search-container-results
 				results="<%= LocationLocalServiceUtil.getLocationsByGroupId(scopeGroupId, searchContainer.getStart(), searchContainer.getEnd()) %>"
@@ -85,5 +79,3 @@ boolean showLocationAddress_view = GetterUtil.getBoolean(portletPreferences.getV
 			<liferay-ui:search-iterator />
 
 		</liferay-ui:search-container>
-	</c:otherwise>
-</c:choose>

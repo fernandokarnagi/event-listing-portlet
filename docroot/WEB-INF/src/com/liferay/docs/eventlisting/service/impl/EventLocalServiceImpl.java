@@ -21,6 +21,7 @@ import java.util.List;
 import com.liferay.docs.eventlisting.model.Event;
 import com.liferay.docs.eventlisting.service.EventLocalServiceUtil;
 import com.liferay.docs.eventlisting.service.base.EventLocalServiceBaseImpl;
+import com.liferay.docs.eventlisting.service.persistence.EventFinderUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.CalendarFactoryUtil;
@@ -150,6 +151,16 @@ public class EventLocalServiceImpl extends EventLocalServiceBaseImpl {
 		return event;
 	}
 
+	
+	public List<Event> findByEventNameEventDescriptionLocationName(String eventName,
+		    String eventDescription, String locationName, int begin, int end)
+		throws SystemException {
+
+		    return EventFinderUtil.findByEventNameEventDescriptionLocationName(
+		        eventName, eventDescription, locationName, begin, end);
+		}   
+	
+	
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 * 

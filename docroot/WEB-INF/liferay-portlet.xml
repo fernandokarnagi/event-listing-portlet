@@ -46,4 +46,12 @@
 		<role-name>user</role-name>
 		<role-link>User</role-link>
 	</role-mapper>
+    <role-mapper>
+        <role-name>requester</role-name>
+        <role-link>CTC Requester</role-link>
+    </role-mapper>
+    <role-mapper>
+        <role-name>approver</role-name>
+        <role-link>CTC Approver</role-link>
+    </role-mapper>
 </liferay-portlet-app>

@@ -149,6 +149,13 @@ public class EventLocalServiceClp implements EventLocalService {
 				"int", "int", "int", "int", "long",
 				"com.liferay.portal.service.ServiceContext"
 			};
+
+		_methodName26 = "findByEventNameEventDescriptionLocationName";
+
+		_methodParameterTypes26 = new String[] {
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"int", "int"
+			};
 	}
 
 	@Override
@@ -953,6 +960,47 @@ public class EventLocalServiceClp implements EventLocalService {
 		return (com.liferay.docs.eventlisting.model.Event)ClpSerializer.translateOutput(returnObj);
 	}
 
+	@Override
+	public java.util.List<com.liferay.docs.eventlisting.model.Event> findByEventNameEventDescriptionLocationName(
+		java.lang.String eventName, java.lang.String eventDescription,
+		java.lang.String locationName, int begin, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName26,
+					_methodParameterTypes26,
+					new Object[] {
+						ClpSerializer.translateInput(eventName),
+						
+					ClpSerializer.translateInput(eventDescription),
+						
+					ClpSerializer.translateInput(locationName),
+						
+					begin,
+						
+					end
+					});
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (java.util.List<com.liferay.docs.eventlisting.model.Event>)ClpSerializer.translateOutput(returnObj);
+	}
+
 	private InvokableLocalService _invokableLocalService;
 	private String _methodName0;
 	private String[] _methodParameterTypes0;
@@ -1004,4 +1052,6 @@ public class EventLocalServiceClp implements EventLocalService {
 	private String[] _methodParameterTypes24;
 	private String _methodName25;
 	private String[] _methodParameterTypes25;
+	private String _methodName26;
+	private String[] _methodParameterTypes26;
 }

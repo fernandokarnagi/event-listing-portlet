@@ -14,11 +14,14 @@
 
 package com.liferay.docs.eventlisting.service.impl;
 
+import java.util.List;
+
 import com.liferay.docs.eventlisting.model.Event;
 import com.liferay.docs.eventlisting.service.EventLocalServiceUtil;
 import com.liferay.docs.eventlisting.service.base.EventServiceBaseImpl;
 import com.liferay.docs.eventlisting.service.permission.EventListingPermission;
 import com.liferay.docs.eventlisting.service.permission.EventPermission;
+import com.liferay.docs.eventlisting.service.persistence.EventFinderUtil;
 import com.liferay.docs.eventlisting.util.EventListingActionKeys;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -78,6 +81,12 @@ public class EventServiceImpl extends EventServiceBaseImpl {
 
 		return EventLocalServiceUtil.updateEvent(userId, eventId, name, description, month, day, year, hour, minute, locationId,
 				serviceContext);
+	}
+
+	public List<Event> findByEventNameEventDescriptionLocationName(String eventName, String eventDescription, String locationName,
+			int begin, int end) throws SystemException {
+
+		return EventLocalServiceUtil.findByEventNameEventDescriptionLocationName(eventName, eventDescription, locationName, begin, end);
 	}
 
 	/*

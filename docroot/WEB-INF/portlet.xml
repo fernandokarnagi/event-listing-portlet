@@ -67,6 +67,12 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
+        <security-role-ref>
+            <role-name>requester</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>approver</role-name>
+        </security-role-ref>
 	</portlet>
 	<portlet>
 		<portlet-name>my-created-events</portlet-name>

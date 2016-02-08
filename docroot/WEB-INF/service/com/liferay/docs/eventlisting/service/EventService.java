@@ -90,4 +90,9 @@ public interface EventService extends BaseService, InvokableService {
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
+
+	public java.util.List<com.liferay.docs.eventlisting.model.Event> findByEventNameEventDescriptionLocationName(
+		java.lang.String eventName, java.lang.String eventDescription,
+		java.lang.String locationName, int begin, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
 }

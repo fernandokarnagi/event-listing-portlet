@@ -142,5 +142,23 @@ public class EventServiceSoap {
 		}
 	}
 
+	public static com.liferay.docs.eventlisting.model.EventSoap[] findByEventNameEventDescriptionLocationName(
+		java.lang.String eventName, java.lang.String eventDescription,
+		java.lang.String locationName, int begin, int end)
+		throws RemoteException {
+		try {
+			java.util.List<com.liferay.docs.eventlisting.model.Event> returnValue =
+				EventServiceUtil.findByEventNameEventDescriptionLocationName(eventName,
+					eventDescription, locationName, begin, end);
+
+			return com.liferay.docs.eventlisting.model.EventSoap.toSoapModels(returnValue);
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+
+			throw new RemoteException(e.getMessage());
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(EventServiceSoap.class);
 }
