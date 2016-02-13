@@ -56,7 +56,7 @@ public class EventLocalServiceImpl extends EventLocalServiceBaseImpl {
 			long locationId, ServiceContext serviceContext) throws PortalException, SystemException {
 
 		User user = userPersistence.findByPrimaryKey(userId);
-
+		
 		Date now = new Date();
 
 		long eventId = counterLocalService.increment(Event.class.getName());
