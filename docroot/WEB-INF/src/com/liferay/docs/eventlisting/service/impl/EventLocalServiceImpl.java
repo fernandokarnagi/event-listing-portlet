@@ -56,7 +56,7 @@ public class EventLocalServiceImpl extends EventLocalServiceBaseImpl {
 			long locationId, ServiceContext serviceContext) throws PortalException, SystemException {
 
 		User user = userPersistence.findByPrimaryKey(userId);
-		
+
 		Date now = new Date();
 
 		long eventId = counterLocalService.increment(Event.class.getName());
@@ -126,6 +126,10 @@ public class EventLocalServiceImpl extends EventLocalServiceBaseImpl {
 		return eventPersistence.findByUserId(userId);
 	}
 
+	public List<Event> findAll() throws PortalException, SystemException {
+		return eventPersistence.findAll();
+	}
+
 	public Event updateEvent(long userId, long eventId, String name, String description, int month, int day, int year, int hour,
 			int minute, long locationId, ServiceContext serviceContext) throws PortalException, SystemException {
 
@@ -151,16 +155,12 @@ public class EventLocalServiceImpl extends EventLocalServiceBaseImpl {
 		return event;
 	}
 
-	
-	public List<Event> findByEventNameEventDescriptionLocationName(String eventName,
-		    String eventDescription, String locationName, int begin, int end)
-		throws SystemException {
+	public List<Event> findByEventNameEventDescriptionLocationName(String eventName, String eventDescription, String locationName,
+			int begin, int end) throws SystemException {
 
-		    return EventFinderUtil.findByEventNameEventDescriptionLocationName(
-		        eventName, eventDescription, locationName, begin, end);
-		}   
-	
-	
+		return EventFinderUtil.findByEventNameEventDescriptionLocationName(eventName, eventDescription, locationName, begin, end);
+	}
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 * 

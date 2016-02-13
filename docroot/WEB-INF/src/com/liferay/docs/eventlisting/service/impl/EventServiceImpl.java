@@ -64,7 +64,14 @@ public class EventServiceImpl extends EventServiceBaseImpl {
 
 		EventPermission.check(getPermissionChecker(), eventId, EventListingActionKeys.DELETE_EVENT);
 
-		return eventLocalService.deleteEvent(eventId);
+		return EventLocalServiceUtil.deleteEvent(eventId);
+	}
+
+	public List<Event> findAll() throws PortalException, SystemException {
+
+		//EventPermission.check(getPermissionChecker(), EventListingActionKeys.VIEW);
+
+		return EventLocalServiceUtil.findAll();
 	}
 
 	public Event getEvent(long eventId) throws PortalException, SystemException {

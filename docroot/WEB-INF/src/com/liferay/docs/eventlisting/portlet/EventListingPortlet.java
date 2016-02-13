@@ -24,7 +24,7 @@ public class EventListingPortlet extends MVCPortlet {
 	public void addEvent(ActionRequest request, ActionResponse response) throws Exception {
 
 		_updateEvent(request);
-
+		
 		sendRedirect(request, response);
 	}
 

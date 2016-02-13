@@ -79,6 +79,10 @@ public interface EventService extends BaseService, InvokableService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
+	public java.util.List<com.liferay.docs.eventlisting.model.Event> findAll()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.docs.eventlisting.model.Event getEvent(long eventId)
 		throws com.liferay.portal.kernel.exception.PortalException,

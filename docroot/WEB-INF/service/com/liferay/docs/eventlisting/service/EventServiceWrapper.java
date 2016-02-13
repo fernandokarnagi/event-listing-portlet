@@ -80,6 +80,13 @@ public class EventServiceWrapper implements EventService,
 	}
 
 	@Override
+	public java.util.List<com.liferay.docs.eventlisting.model.Event> findAll()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _eventService.findAll();
+	}
+
+	@Override
 	public com.liferay.docs.eventlisting.model.Event getEvent(long eventId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {

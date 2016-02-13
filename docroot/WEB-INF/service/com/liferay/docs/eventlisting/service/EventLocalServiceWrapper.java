@@ -323,6 +323,13 @@ public class EventLocalServiceWrapper implements EventLocalService,
 	}
 
 	@Override
+	public java.util.List<com.liferay.docs.eventlisting.model.Event> findAll()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _eventLocalService.findAll();
+	}
+
+	@Override
 	public com.liferay.docs.eventlisting.model.Event updateEvent(long userId,
 		long eventId, java.lang.String name, java.lang.String description,
 		int month, int day, int year, int hour, int minute, long locationId,

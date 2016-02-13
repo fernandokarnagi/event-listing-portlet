@@ -142,17 +142,21 @@ public class EventLocalServiceClp implements EventLocalService {
 
 		_methodParameterTypes24 = new String[] { "long" };
 
-		_methodName25 = "updateEvent";
+		_methodName25 = "findAll";
 
-		_methodParameterTypes25 = new String[] {
+		_methodParameterTypes25 = new String[] {  };
+
+		_methodName26 = "updateEvent";
+
+		_methodParameterTypes26 = new String[] {
 				"long", "long", "java.lang.String", "java.lang.String", "int",
 				"int", "int", "int", "int", "long",
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName26 = "findByEventNameEventDescriptionLocationName";
+		_methodName27 = "findByEventNameEventDescriptionLocationName";
 
-		_methodParameterTypes26 = new String[] {
+		_methodParameterTypes27 = new String[] {
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"int", "int"
 			};
@@ -902,6 +906,39 @@ public class EventLocalServiceClp implements EventLocalService {
 	}
 
 	@Override
+	public java.util.List<com.liferay.docs.eventlisting.model.Event> findAll()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName25,
+					_methodParameterTypes25, new Object[] {  });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (java.util.List<com.liferay.docs.eventlisting.model.Event>)ClpSerializer.translateOutput(returnObj);
+	}
+
+	@Override
 	public com.liferay.docs.eventlisting.model.Event updateEvent(long userId,
 		long eventId, java.lang.String name, java.lang.String description,
 		int month, int day, int year, int hour, int minute, long locationId,
@@ -911,8 +948,8 @@ public class EventLocalServiceClp implements EventLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName25,
-					_methodParameterTypes25,
+			returnObj = _invokableLocalService.invokeMethod(_methodName26,
+					_methodParameterTypes26,
 					new Object[] {
 						userId,
 						
@@ -968,8 +1005,8 @@ public class EventLocalServiceClp implements EventLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName26,
-					_methodParameterTypes26,
+			returnObj = _invokableLocalService.invokeMethod(_methodName27,
+					_methodParameterTypes27,
 					new Object[] {
 						ClpSerializer.translateInput(eventName),
 						
@@ -1054,4 +1091,6 @@ public class EventLocalServiceClp implements EventLocalService {
 	private String[] _methodParameterTypes25;
 	private String _methodName26;
 	private String[] _methodParameterTypes26;
+	private String _methodName27;
+	private String[] _methodParameterTypes27;
 }
